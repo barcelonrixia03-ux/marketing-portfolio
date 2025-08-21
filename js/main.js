@@ -29,3 +29,49 @@ if (form) {
         form.reset();
     });
 }
+
+// --- START: Mobile Navigation ---
+
+const hamburger = document.querySelector('.hamburger-menu');
+const navLinks = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-links li');
+
+// Toggle menu on hamburger click
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+
+    // Optional: Animate links when menu opens
+    navLinksItems.forEach((link, index) => {
+        if (link.style.animation) {
+            link.style.animation = '';
+        } else {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+        }
+    });
+});
+
+// Close menu when a link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks.classList.contains('nav-active')) {
+            navLinks.classList.remove('nav-active');
+        }
+    });
+});
+
+
+// Optional: Add Keyframes for link animation in your CSS
+// You can add this animation code to your styles.css file for a nicer effect
+
+/*
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+*/
