@@ -20,16 +20,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Form submission
-const form = document.querySelector('form');
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
-        form.reset();
-    });
-}
-
 // --- START: Mobile Navigation ---
 
 const hamburger = document.querySelector('.hamburger-menu');
